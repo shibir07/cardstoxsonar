@@ -1,0 +1,16 @@
+language: java
+jdk: oraclejdk8
+install: true
+addons:
+  sonarcloud:
+    organization: jbelcher-riis-github
+    token:
+      secure: 38aaf84225be662901619fc11f6bdd6927ab54fa
+script:
+  ./gradlew clean check jacocoTestReport sonarqube build
+cache:
+  directories:
+    $HOME/.m2/repository
+    $HOME/.sonar/cache
+    $HOME/.gradle
+    .gradle
